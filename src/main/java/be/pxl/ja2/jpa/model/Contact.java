@@ -7,16 +7,16 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "contacts")
+@Table(name = "contacts") //objecten van klasse contact zitten opgeslaan in de tabel met naam: contacts
 public class Contact {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id //primary key
+	@GeneratedValue(strategy = GenerationType.IDENTITY) //strategie die hibernate moet gebruiken voor genereren nieuwe obj
 	private int id;
 	private String name;
 	private int phone;
 	private String email;
 
-	public Contact() {
+	public Contact() { //altijd default constructor toevoegen
 	}
 
 	public Contact(String name, int phone, String email) {

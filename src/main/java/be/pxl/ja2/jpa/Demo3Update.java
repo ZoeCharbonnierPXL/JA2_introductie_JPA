@@ -19,7 +19,7 @@ public class Demo3Update {
 			TypedQuery<Contact> query = entityManager.createQuery("SELECT c FROM Contact c WHERE c.name = :name", Contact.class);
 			EntityTransaction tx = entityManager.getTransaction();
 			tx.begin();
-			query.setParameter("name", "Sophie");
+			query.setParameter("name", "Sophie"); //hoofdlettergevoelig
 			Contact result = query.getSingleResult();
 			System.out.println(result);
 			result.setPhone(999000);
