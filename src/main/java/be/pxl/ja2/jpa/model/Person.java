@@ -1,16 +1,26 @@
 package be.pxl.ja2.jpa.model;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 
+@Entity
 public class Person {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String firstName;
 	private String lastName;
 	private LocalDate birthday;
+	@Enumerated(value = EnumType.STRING)
 	private Gender gender;
+	@Lob
+	@Basic(fetch = FetchType.LAZY)  //lazy loading: enkel laden indien je het nodig hebt <> eager loading (default)
 	private byte[] picture;
+	@Lob
+	@Basic(fetch = FetchType.LAZY)
 	private String comment;
 	private boolean married;
+	@Transient
 	private String token;
 
 	public Long getId() {
